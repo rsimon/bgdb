@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  publisher: 
-  author: 
-  extension_to: 
+  publisher_id: 
+  author_id: 
+  expansion_to_id: 
 
 two:
   name: MyString
-  publisher: 
-  author: 
-  extension_to: 
+  publisher_id: 
+  author_id: 
+  expansion_to_id: 
