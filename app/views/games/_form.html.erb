@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :publisher_id %><br>
-    <%= f.text_field :publisher_id %>
+    <%= f.collection_select :publisher_id, Publisher.all, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :author_id %><br>
-    <%= f.text_field :author_id %>
+    <%= f.collection_select :author_id, Author.all, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :expansion_to_id %><br>
