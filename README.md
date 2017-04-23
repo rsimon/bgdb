@@ -1,0 +1,2 @@
+# bgdb
+Example Rails project
