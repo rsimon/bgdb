@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :author_id %><br>
-    <%= f.collection_select :author_id, Author.all, :id, :name %>
+    <%= f.collection_select :author_id, Author.all, :id, :name, :include_blank => 'None' %>
   </div>
   <div class="field">
     <%= f.label :expansion_to_id %><br>

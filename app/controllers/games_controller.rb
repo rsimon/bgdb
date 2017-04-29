@@ -4,6 +4,7 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
+    puts params[:author]
     @games = Game.all
   end
 
