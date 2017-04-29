@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423073607) do
+ActiveRecord::Schema.define(version: 20170429134633) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20170423073607) do
   add_index "games", ["author_id"], name: "index_games_on_author_id"
   add_index "games", ["expansion_to_id"], name: "index_games_on_expansion_to_id"
   add_index "games", ["publisher_id"], name: "index_games_on_publisher_id"
+
+  create_table "images", force: :cascade do |t|
+    t.string   "image_uid"
+    t.string   "caption"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "publishers", force: :cascade do |t|
     t.string   "name"
