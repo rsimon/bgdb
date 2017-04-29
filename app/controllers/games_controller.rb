@@ -5,8 +5,7 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
     puts params[:author]
-    # @games = Game.all
-    @games = Game.page(params[:page]) #.order('created_at DESC')
+    @games = Game.page(params[:page]).order('name ASC')
   end
 
   # GET /games/1
@@ -71,6 +70,6 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:name, :publisher_id, :author_id, :expansion_to_id)
+      params.require(:game).permit(:name, :publisher_id, :author_id, :language, :expansion_to_id)
     end
 end

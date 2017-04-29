@@ -24,8 +24,12 @@
     <%= f.collection_select :author_id, Author.all, :id, :name, :include_blank => 'None' %>
   </div>
   <div class="field">
+    <%= f.label :language %><br>
+    <%= f.text_field :language %>
+  </div>
+  <div class="field">
     <%= f.label :expansion_to_id %><br>
-    <%= f.text_field :expansion_to_id %>
+    <%= f.collection_select :expansion_to_id, Game.all, :id, :name, :include_blank => 'None' %>
   </div>
   <div class="actions">
     <%= f.submit %>
