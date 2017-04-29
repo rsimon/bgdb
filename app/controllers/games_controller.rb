@@ -5,7 +5,8 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
     puts params[:author]
-    @games = Game.all
+    # @games = Game.all
+    @games = Game.page(params[:page]) #.order('created_at DESC')
   end
 
   # GET /games/1
