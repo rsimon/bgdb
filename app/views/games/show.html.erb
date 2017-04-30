@@ -1,24 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @game.name %>
-</p>
+  <!-- TODO language as flag image -->
+</h1>
 
-<p>
-  <strong>Publisher:</strong>
-  <%= @game.publisher %>
-</p>
+<p class="publisher"><%= link_to @game.publisher.name, @game.publisher %></p>
+<p class="author"><%= link_to(@game.author.name, @game.author) unless @game.author.nil? %></p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @game.author %>
-</p>
+<% if !@game.expansion_to.nil? %>
+  <p class="base-game">This game is an expansion to <%= link_to @expands.name, @expands %></p>
+<% end %>
 
-<p>
-  <strong>Expansion to:</strong>
-  <%= @game.expansion_to %>
-</p>
+<% if @expansions.any? %>
+  <h2>Expansions</h2>
+  <ul class="expansions">
+    <% @expansions.each do |expansion| %>
+      <li><%= link_to expansion.name, expansion %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>

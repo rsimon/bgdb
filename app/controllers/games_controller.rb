@@ -4,13 +4,14 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    puts params[:author]
     @games = Game.page(params[:page]).order('name ASC')
   end
 
   # GET /games/1
   # GET /games/1.json
   def show
+    @expands = Game.find(@game.expansion_to) unless @game.expansion_to.nil?
+    @expansions = Game.where(:expansion_to => @game.id)
   end
 
   # GET /games/new
