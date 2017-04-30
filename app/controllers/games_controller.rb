@@ -10,13 +10,13 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
-    @expands = Game.find(@game.expansion_to) unless @game.expansion_to.nil?
-    @expansions = Game.where(:expansion_to => @game.id)
   end
 
   # GET /games/new
   def new
     @game = Game.new
+    @game.productions.build
+    @game.authorships.build
   end
 
   # GET /games/1/edit
@@ -71,6 +71,9 @@ class GamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def game_params
-      params.require(:game).permit(:name, :publisher_id, :author_id, :language, :expansion_to_id)
+      params.require(:game)
+        .permit(:name, :year, :expansion_to_id,
+          :productions_attributes => [ :publisher_id ],
+          :authorships_attributes => [ :author_id ])
     end
 end

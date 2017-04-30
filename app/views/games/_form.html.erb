@@ -1,3 +1,4 @@
+
 <%= form_for(@game) do |f| %>
   <% if @game.errors.any? %>
     <div id="error_explanation">
@@ -15,22 +16,37 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
   <div class="field">
-    <%= f.label :publisher_id %><br>
-    <%= f.collection_select :publisher_id, Publisher.all, :id, :name %>
+    <%= f.label :year %><br>
+    <%= f.text_field :year %>
   </div>
-  <div class="field">
-    <%= f.label :author_id %><br>
-    <%= f.collection_select :author_id, Author.all, :id, :name, :include_blank => 'None' %>
-  </div>
-  <div class="field">
-    <%= f.label :language %><br>
-    <%= f.text_field :language %>
-  </div>
+
+  Publishers:
+  <ul>
+    <%= f.fields_for :productions do |pf| %>
+      <li>
+        <%= pf.label :name %>
+        <%= pf.collection_select :publisher_id, Publisher.all, :id, :name %>
+      </li>
+    <% end %>
+  </ul>
+
+  Authors:
+  <ul>
+    <%= f.fields_for :authorships do |af| %>
+      <li>
+        <%= af.label :name %>
+        <%= af.collection_select :author_id, Author.all, :id, :name %>
+      </li>
+    <% end %>
+  </ul>
+
   <div class="field">
     <%= f.label :expansion_to_id %><br>
     <%= f.collection_select :expansion_to_id, Game.all, :id, :name, :include_blank => 'None' %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
