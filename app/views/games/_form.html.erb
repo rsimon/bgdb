@@ -37,7 +37,16 @@
     <%= f.fields_for :authorships do |af| %>
       <li>
         <%= af.label :name %>
-        <%= af.collection_select :author_id, Author.all, :id, :name %>
+        <%= af.collection_select :author_id, Author.all, :id, :name, :include_blank => 'None' %>
+      </li>
+    <% end %>
+  </ul>
+
+  Languages:
+  <ul>
+    <%= f.fields_for :languages do |lf| %>
+      <li>
+        <%= lf.select :lang, ['EN', 'DE'] %>
       </li>
     <% end %>
   </ul>

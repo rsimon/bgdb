@@ -8,6 +8,7 @@
       <th>Name</th>
       <th>Year</th>
       <th>Publishers</th>
+      <th>Languages</th>
       <th>Expansion to</th>
       <th colspan="2"></th>
     </tr>
@@ -19,6 +20,7 @@
         <td><%= link_to game.name, game  %></td>
         <td><%= game.year %></td>
         <td><%= game.publishers.collect {|p| p.name }.join(', ') %></td>
+        <td><%= game.languages.collect {|p| p.lang }.join(', ') %></td>
         <td><%= game.expansion_to.name unless game.expansion_to.nil?  %></td>
         <td><%= link_to 'Edit', edit_game_path(game) %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>

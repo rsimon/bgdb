@@ -19,6 +19,7 @@ class GamesController < ApplicationController
     @game = Game.new
     @game.productions.build
     @game.authorships.build
+    @game.languages.build
   end
 
   # GET /games/1/edit
@@ -29,7 +30,6 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new(game_params)
-
     respond_to do |format|
       if @game.save
         format.html { redirect_to @game, notice: 'Game was successfully created.' }
@@ -76,6 +76,7 @@ class GamesController < ApplicationController
       params.require(:game)
         .permit(:name, :year, :expansion_to_id,
           :productions_attributes => [ :publisher_id ],
-          :authorships_attributes => [ :author_id ])
+          :authorships_attributes => [ :author_id ],
+          :languages_attributes => [ :lang ])
     end
 end
