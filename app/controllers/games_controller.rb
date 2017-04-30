@@ -10,6 +10,8 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    @expands = Game.find(@game.expansion_to) unless @game.expansion_to.nil?
+    @expansions = Game.where(:expansion_to => @game.id)
   end
 
   # GET /games/new
