@@ -13,5 +13,5 @@ class Game < ActiveRecord::Base
 
   accepts_nested_attributes_for :languages, allow_destroy: true
   accepts_nested_attributes_for :productions, allow_destroy: true
-  accepts_nested_attributes_for :authors, allow_destroy: true
+  accepts_nested_attributes_for :authorships, allow_destroy: true
 end

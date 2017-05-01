@@ -17,8 +17,8 @@ class GamesController < ApplicationController
   # GET /games/new
   def new
     @game = Game.new
-    @game.productions.build
-    @game.authorships.build
+    # @game.productions.build
+    # @game.authorships.build
     @game.languages.build
   end
 
