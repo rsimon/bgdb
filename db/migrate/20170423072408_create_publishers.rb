@@ -4,7 +4,7 @@ class CreatePublishers < ActiveRecord::Migration
       t.string :name
       t.string :homepage
       t.string :logo_uid
-
+      
       t.timestamps null: false
     end
   end

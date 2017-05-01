@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag @game.image.url if @game.image_stored? %>
+
 <h1>
   <%= @game.name %>
   <!-- TODO language as flag image -->

@@ -1,6 +1,8 @@
 class Game < ActiveRecord::Base
   self.per_page = 10
 
+  dragonfly_accessor :image
+
   has_many :languages
 
   has_many :publishers, through: :productions

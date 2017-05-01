@@ -32,20 +32,15 @@ ActiveRecord::Schema.define(version: 20170430181609) do
 
   create_table "games", force: :cascade do |t|
     t.string   "name"
+    t.string   "image_uid"
     t.integer  "year"
+    t.integer  "amount"
     t.integer  "expansion_to_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
   add_index "games", ["expansion_to_id"], name: "index_games_on_expansion_to_id"
-
-  create_table "images", force: :cascade do |t|
-    t.string   "image_uid"
-    t.string   "caption"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "languages", force: :cascade do |t|
     t.integer  "game_id"
