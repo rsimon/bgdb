@@ -3,6 +3,7 @@ class CreatePublishers < ActiveRecord::Migration
     create_table :publishers do |t|
       t.string :name
       t.string :homepage
+      t.string :logo_uid
 
       t.timestamps null: false
     end

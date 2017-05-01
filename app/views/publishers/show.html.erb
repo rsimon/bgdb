@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag @publisher.logo.url if @publisher.logo_stored? %>
+
 <p>
   <strong>Name:</strong>
   <%= @publisher.name %>
