@@ -5,6 +5,5 @@ Rails.application.routes.draw do
   resources :games
   resources :authors
   resources :publishers
-  resources :images
 
 end
