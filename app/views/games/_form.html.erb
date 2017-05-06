@@ -49,14 +49,20 @@
     <p><%= f.link_to_add "Add Author", :authorships %></p>
   </ul>
 
-  Languages:
+  Copies:
   <ul>
-    <%= f.fields_for :languages do |lf| %>
+    <%= f.fields_for :copies do |cf| %>
       <li>
-        <%= lf.select :lang, ['EN', 'DE'] %>
+        <%= cf.select :language, ['EN', 'DE'] %>
+
+        <%= cf.label :purchased_at %><br>
+        <%= cf.text_field :purchased_at %>
+
+        <%= cf.label :purchase_price %><br>
+        <%= cf.text_field :purchase_price %>
       </li>
     <% end %>
-    <p><%= f.link_to_add "Add Language", :languages %></p>
+    <p><%= f.link_to_add "Add Copy", :copies %></p>
   </ul>
 
   <div class="field">

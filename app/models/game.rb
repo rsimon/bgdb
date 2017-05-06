@@ -3,7 +3,7 @@ class Game < ActiveRecord::Base
 
   dragonfly_accessor :image
 
-  has_many :languages
+  has_many :copies
 
   has_many :publishers, through: :productions
   has_many :productions, dependent: :destroy
@@ -13,7 +13,7 @@ class Game < ActiveRecord::Base
 
   belongs_to :expansion_to, :class_name => 'Game'
 
-  accepts_nested_attributes_for :languages, allow_destroy: true
+  accepts_nested_attributes_for :copies, allow_destroy: true
   accepts_nested_attributes_for :productions, allow_destroy: true
   accepts_nested_attributes_for :authorships, allow_destroy: true
 end

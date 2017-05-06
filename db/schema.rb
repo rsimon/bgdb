@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430181609) do
+ActiveRecord::Schema.define(version: 20170506112822) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20170430181609) do
   add_index "authorships", ["author_id"], name: "index_authorships_on_author_id"
   add_index "authorships", ["game_id"], name: "index_authorships_on_game_id"
 
+  create_table "copies", force: :cascade do |t|
+    t.integer  "game_id"
+    t.string   "language"
+    t.string   "purchased_at"
+    t.string   "purchase_price"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "copies", ["game_id"], name: "index_copies_on_game_id"
+
   create_table "games", force: :cascade do |t|
     t.string   "name"
     t.string   "image_uid"
@@ -41,15 +52,6 @@ ActiveRecord::Schema.define(version: 20170430181609) do
   end
 
   add_index "games", ["expansion_to_id"], name: "index_games_on_expansion_to_id"
-
-  create_table "languages", force: :cascade do |t|
-    t.integer  "game_id"
-    t.string   "lang"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "languages", ["game_id"], name: "index_languages_on_game_id"
 
   create_table "productions", force: :cascade do |t|
     t.integer  "game_id"

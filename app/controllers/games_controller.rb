@@ -17,9 +17,7 @@ class GamesController < ApplicationController
   # GET /games/new
   def new
     @game = Game.new
-    # @game.productions.build
-    # @game.authorships.build
-    @game.languages.build
+    @game.copies.build
   end
 
   # GET /games/1/edit
@@ -77,6 +75,6 @@ class GamesController < ApplicationController
         .permit(:name, :image, :year, :expansion_to_id,
           :productions_attributes => [ :publisher_id ],
           :authorships_attributes => [ :author_id ],
-          :languages_attributes => [ :lang ])
+          :copies_attributes => [ :language, :purchased_at, :purchase_price ])
     end
 end
