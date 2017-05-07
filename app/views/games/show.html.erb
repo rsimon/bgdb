@@ -1,23 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @game.image.url if @game.image_stored? %>
+<div class="jumbotron">
+  <div class="cover-image">
+    <%= image_tag @game.image.url if @game.image_stored? %>
+  </div>
 
-<h1>
-  <%= @game.name %>
-  <!-- TODO language as flag image -->
-</h1>
+  <h1>
+    <%= @game.name %>
+    <!-- TODO language as flag image -->
+  </h1>
 
-<ul class="publishers">
-  <% @game.publishers.each do |publisher| %>
-    <li><%= link_to publisher.name, publisher %></li>
-  <% end %>
-</ul>
+  <ul class="publishers">
+    <% @game.publishers.each do |publisher| %>
+      <li><%= link_to publisher.name, publisher %></li>
+    <% end %>
+  </ul>
 
-<ul class="authors">
-  <% @game.authors.each do |author| %>
-    <%= link_to author.name, author %>
-  <% end %>
-</ul>
+  <ul class="authors">
+    <% @game.authors.each do |author| %>
+      <%= link_to author.name, author %>
+    <% end %>
+  </ul>
+</div>
 
 <% if !@game.expansion_to.nil? %>
   <p class="base-game">This game is an expansion to <%= link_to @expands.name, @expands %></p>
