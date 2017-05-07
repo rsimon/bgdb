@@ -53,4 +53,44 @@
      border: none;
    }
 
+   .userinfo {
+     position: absolute;
+     right: 30px;
+     top: 25px;
+     font-size: 1.1em;
+
+     a {
+       color: #fff;
+       text-decoration: none;
+     }
+
+     a:hover {
+       text-decoration: underline;
+     }
+
+   }
+
+ }
+
+ .button {
+   position: relative;
+   display: inline-block;
+   background: #80ba8e;
+   padding: 0.8em 2em;
+   text-decoration: none !important;
+   font-size: 1.2em;
+   font-weight: 300;
+   color: #fff !important;
+   -moz-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+   -webkit-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+   -o-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+   -ms-transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+   transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
+   text-align: center;
+   border-radius: 0.25em;
+ }
+
+ .button:hover {
+   background: #70aa7e;
+   color: #fff !important;
  }

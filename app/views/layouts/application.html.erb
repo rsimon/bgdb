@@ -19,6 +19,14 @@
         <li><%= link_to "AUTHORS", authors_path %></li>
       </ul>
     </div>
+
+    <div class="userinfo">
+      <% if user_signed_in? %>
+        <%= current_user.username %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path %>
+      <% end %>
+    </div>
   </div>
 
 <%= yield %>
