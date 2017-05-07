@@ -1,9 +1,11 @@
 // Place all the styles related to the Games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import '_mixins';
+
 .jumbotron {
   padding:60px 0;
-  background-color: #1f1f1f;
+   @include gradient(#5a8b89, #739487);
 
   .cover-image {
     width: 300px;
@@ -14,8 +16,14 @@
     img {
       max-width: 100%;
       max-height: 100%;
+      @include border-radius(4px);
+      @include box-shadow(0, 0, 30px, rgba(0, 0, 0, 0.4));
     }
 
+  }
+
+  h1 {
+    color: #fff;
   }
 
 }

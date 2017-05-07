@@ -1,0 +1,20 @@
+@mixin border-radius($radius) {
+ -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+     -ms-border-radius: $radius;
+         border-radius: $radius;
+}
+
+@mixin gradient($from, $to) {
+ background: from;
+ background: -webkit-linear-gradient($from, $to);
+ background: -o-linear-gradient($from, $to);
+ background: -moz-linear-gradient($from, $to);
+ background: linear-gradient($from, $to);
+}
+
+@mixin box-shadow($x, $y, $w, $color) {
+  -webkit-box-shadow: $x $y $w $color;
+     -moz-box-shadow: $x $y $w $color;
+          box-shadow: $x $y $w $color;
+}
