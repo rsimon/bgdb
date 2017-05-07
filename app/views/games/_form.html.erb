@@ -18,13 +18,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="field">
     <%= f.label :year %>
     <%= f.text_field :year %>
+  </div>
+
+  <div class="field fileupload">
+    <%= f.label :image, class: "button" %>
+    <%= f.file_field :image %>
   </div>
 
   Publishers:
@@ -32,7 +32,7 @@
     <%= f.fields_for :productions do |pf| %>
       <li>
         <%= pf.label :name %>
-        <%= pf.collection_select :publisher_id, Publisher.all, :id, :name %>
+        <%= pf.collection_select :publisher_id, Publisher.all, :id, :name, :include_blank => '-- None --' %>
       </li>
     <% end %>
     <p><%= f.link_to_add "Add Publisher", :productions %></p>
@@ -43,7 +43,7 @@
     <%= f.fields_for :authorships do |af| %>
       <li>
         <%= af.label :name %>
-        <%= af.collection_select :author_id, Author.all, :id, :name, :include_blank => 'None' %>
+        <%= af.collection_select :author_id, Author.all, :id, :name, :include_blank => '-- None --' %>
       </li>
     <% end %>
     <p><%= f.link_to_add "Add Author", :authorships %></p>
@@ -71,6 +71,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'button' %>
   </div>
 <% end %>

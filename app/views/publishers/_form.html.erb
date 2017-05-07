@@ -12,18 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
+
   <div class="field">
-    <%= f.label :homepage %><br>
+    <%= f.label :homepage %>
     <%= f.text_field :homepage %>
   </div>
-  <div class="field">
+
+  <!-- div class="field">
     <%= f.label :logo %><br>
     <%= f.file_field :logo %>
-  </div>
+  </div -->
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'button' %>
   </div>
 <% end %>
