@@ -42,9 +42,7 @@
             { class: "uk-select" } %>
         </li>
       <% end %>
-      <%= f.link_to_add "Add Publisher",
-        :productions,
-        class: "uk-button uk-button-default uk-margin" %>
+      <%= f.link_to_add "Add Publisher", :productions, class: "uk-button uk-button-primary uk-button-small" %>
     </ul>
   </div>
 
@@ -63,7 +61,7 @@
       <% end %>
       <%= f.link_to_add "Add Author",
         :authorships,
-        class: "uk-button uk-button-default" %>
+        class: "uk-button uk-button-primary uk-button-small" %>
     </ul>
   </div>
 
@@ -93,7 +91,8 @@
       { class: "uk-select" } %>
   </div>
 
-  <div class="actions uk-margin">
+  <div class="actions uk-margin uk-inline">
+    <i class="uk-form-icon" uk-icon="twitter"></i>
     <%= f.submit class: "uk-button uk-button-primary" %>
   </div>
 </div>
