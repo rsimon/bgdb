@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery_nested_form
+//= require uikit.min
+//= require uikit-icons.min

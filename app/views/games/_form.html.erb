@@ -1,5 +1,7 @@
 
-<%= nested_form_for(@game) do |f| %>
+<%= nested_form_for @game, html: { class: "uk-form-width-large" } do |f| %>
+<div class="uk-container uk-container-small">
+  <!-- TODO error message styling -->
   <% if @game.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
@@ -12,42 +14,58 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="uk-margin">
+    <%= f.label :name, class: "uk-form-label" %>
+    <%= f.text_field :name, class: "uk-input" %>
   </div>
 
-  <div class="field">
-    <%= f.label :year %>
-    <%= f.text_field :year %>
+  <div class="uk-margin">
+    <%= f.label :year, class: "uk-form-label" %>
+    <%= f.text_field :year, class: "uk-input"  %>
   </div>
 
-  <div class="field fileupload">
-    <%= f.label :image, class: "button" %>
-    <%= f.file_field :image %>
+  <div class="uk-margin uk-form-custom fileupload">
+    <%= f.label :image, class: "uk-button uk-button-default" %>
+    <%= f.file_field :image, class: "file" %>
   </div>
 
-  Publishers:
-  <ul>
-    <%= f.fields_for :productions do |pf| %>
-      <li>
-        <%= pf.label :name %>
-        <%= pf.collection_select :publisher_id, Publisher.all, :id, :name, :include_blank => '-- None --' %>
-      </li>
-    <% end %>
-    <p><%= f.link_to_add "Add Publisher", :productions %></p>
-  </ul>
+  <div class="uk-margin">
+    <span class="label">Publishers</span>
+    <ul>
+      <%= f.fields_for :productions do |pf| %>
+        <li>
+          <%= pf.collection_select :publisher_id,
+            Publisher.all,
+            :id,
+            :name,
+            { prompt: "Select publisher" },
+            { class: "uk-select" } %>
+        </li>
+      <% end %>
+      <%= f.link_to_add "Add Publisher",
+        :productions,
+        class: "uk-button uk-button-default uk-margin" %>
+    </ul>
+  </div>
 
-  Authors:
-  <ul>
-    <%= f.fields_for :authorships do |af| %>
-      <li>
-        <%= af.label :name %>
-        <%= af.collection_select :author_id, Author.all, :id, :name, :include_blank => '-- None --' %>
-      </li>
-    <% end %>
-    <p><%= f.link_to_add "Add Author", :authorships %></p>
-  </ul>
+  <div class="uk-margin">
+    <span class="uk-form-label">Authors</span>
+    <ul>
+      <%= f.fields_for :authorships do |af| %>
+        <li>
+          <%= af.collection_select :author_id,
+            Author.all,
+            :id,
+            :name,
+            { prompt: "Select author" },
+            { class: "uk-select" } %>
+        </li>
+      <% end %>
+      <%= f.link_to_add "Add Author",
+        :authorships,
+        class: "uk-button uk-button-default" %>
+    </ul>
+  </div>
 
   Copies:
   <ul>
@@ -65,12 +83,18 @@
     <p><%= f.link_to_add "Add Copy", :copies %></p>
   </ul>
 
-  <div class="field">
-    <%= f.label :expansion_to_id %><br>
-    <%= f.collection_select :expansion_to_id, Game.all, :id, :name, :include_blank => 'None' %>
+  <div class="uk-margin">
+    <%= f.label :expansion_to_id, class: "uk-form-label" %><br>
+    <%= f.collection_select :expansion_to_id,
+      Game.all,
+      :id,
+      :name,
+      { prompt: "Select base game" },
+      { class: "uk-select" } %>
   </div>
 
-  <div class="actions">
-    <%= f.submit :class => 'button' %>
+  <div class="actions uk-margin">
+    <%= f.submit class: "uk-button uk-button-primary" %>
   </div>
+</div>
 <% end %>
