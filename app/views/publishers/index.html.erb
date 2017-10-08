@@ -16,9 +16,9 @@
       <tr>
         <td><%= publisher.name %></td>
         <td><%= publisher.homepage %></td>
-        <td><%= link_to 'Show', publisher %></td>
-        <td><%= link_to 'Edit', edit_publisher_path(publisher) %></td>
-        <td><%= link_to 'Destroy', publisher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="icon"><%= link_to raw('&#xf06e;'), publisher %></td>
+        <td class="icon"><%= link_to raw('&#xf040;'), edit_publisher_path(publisher) %></td>
+        <td class="icon"><%= link_to raw('&#xf00d;'), publisher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
